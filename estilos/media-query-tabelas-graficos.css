@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+@media screen and (width >= 750px) {
+    body{
+        display: grid;
+        grid-template-areas: 
+        'header main main'
+        'header main main'
+        'footer footer footer'
+        ;
+        grid-template-columns: 250px;
+    }
+
+    .cabecalho{
+        grid-area: header;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 100px;
+        margin: .5rem 0 0 .5rem;
+        padding-top: 2rem;
+        border-radius: 5px 0 0 0;
+    }
+
+    .cabecalho__menu {
+        display: none;
+    }
+
+    .cabecalho__navegacao{
+        display: block;
+    }
+
+    .cabecalho__navegacao > ul{
+        display: flex;
+        color: var(--cor-branco);
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .cabecalho__navegacao a{
+        display: block;
+        color: var(--cor-branco);
+        text-decoration: none;
+        padding: .5rem;
+        border-radius: 5px;
+    }
+
+    .cabecalho__navegacao a:hover{
+        background-color: var(--cor-azul-claro);
+    }
+
+    .principal {
+        grid-area: main;
+        margin: .5rem .5rem 0 0;
+        border-radius: 0 .5rem 0 0;
+    }
+
+    .titulo{
+        font-size: 1.4rem;
+    }
+
+    .formulario__legenda{
+        font-size: 1.25rem;
+    }
+
+    form input, select{
+        min-width: 300px;
+        max-width: 600px;
+    }
+
+    form label{
+        font-size: 1.1rem;
+    }
+
+    .botao{
+        padding: .7rem 1.7rem;
+        font-size: 1rem;
+    }
+
+    .container__tabela{
+        overflow-x: hidden !important;
+    }
+
+    .rodape {
+        grid-area: footer;
+    }
+}
+
+@media screen and (width >= 1000px) {
+    .cabecalho {
+        margin: 2rem 0 0 2rem;
+    }
+
+    .cabecalho__titulo{
+        font-size: 1.5rem;
+    }
+
+    .principal{
+        margin: 2rem 2rem 0 0;
+    }
+
+    .titulo{
+        font-size: 1.5rem;
+    }
+
+    .formulario__legenda{
+        font-size: 1.4rem;
+    }
+
+    form input, select{
+        min-width: 400px;
+        min-height: 25px;
+    }
+
+    form label{
+        font-size: 1.2rem;
+    }
+
+    .botao{
+        padding: .7rem 2rem;
+    }
+
+    .tabela, tr, td, th{
+        padding: 1rem;
+    }
+
+    .rodape{
+        margin: 0 2rem 2rem 2rem;
+    }
+}

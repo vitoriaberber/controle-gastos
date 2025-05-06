@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+    <link rel="stylesheet" href="../estilos/reset.css">
+    <link rel="stylesheet" href="../estilos/perfil.css">
+    <link rel="stylesheet" href="../estilos/media-query-perfil.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <h1 class="cabecalho__titulo">Smart Money</h1>
+        <p class="saudacao"></p>
+        <span class="material-symbols-outlined cabecalho__menu">
+            menu
+        </span>
+        <nav class="cabecalho__navegacao" id="navbar">
+            <ul>
+                <li><a href="../index.html">Dashboard</a></li>
+                <li><a href="tabelas-graficos.html">Tabelas e Gráficos</a></li>
+                <li><a href="#perfil">perfil</a></li>
+                <li><a href="#">Mensagens</a></li>
+                <li><a href="#">Configurações</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="principal">
+        <h1 class="principal__titulo">Configure seu perfil</h1>
+        <form action="#" class="principal__formulario">
+            <div>
+                <div class="formulario__imagem"><img class="imagem-principal" src="../img/icon-perfil.png" alt="foto da pessoa que usará o app"></div>
+                <label for="imagem" class="botao btn-imagem">Coloque uma imagem:</label>
+                <input type="file" name="imagem" id="imagem" class="input-file">
+            </div>
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" required>
+            </div>
+            <div>
+                <label for="email" class="label-email">Email:</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div>
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" id="senha" required>
+            </div>
+            <div>
+                <input type="submit" value="Salvar" class="botao" id="salvar">
+                <input type="reset" class="botao" value="Limpar" id="reset">
+            </div>
+        </form>
+    </main>
+
+
+    <footer class="rodape"><p>Feito por <a href="https://github.com/vitoriaberber">Vitória Berber</a></p></footer>
+
+    <script type="module" src="../scripts/perfil.js"></script>
+</body>
+</html>

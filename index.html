@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Money</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+    <link rel="stylesheet" href="estilos/reset.css">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/media-query.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <h1 class="cabecalho__titulo">Smart Money</h1>
+        <p class="saudacao"></p>
+        <span class="material-symbols-outlined cabecalho__menu">
+            menu
+        </span>
+        <nav class="cabecalho__navegacao" id="navbar">
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="paginas/tabelas-graficos.html">Tabelas e Gráficos</a></li>
+                <li><a href="paginas/perfil.html">perfil</a></li>
+                <li><a href="#">Mensagens</a></li>
+                <li><a href="#">Configurações</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="principal">
+        <div class="principal__data">
+            <p class="data">seg, 25/04/2020</p>
+        </div>
+        <h2 class="principal__titulo">Dashboard</h2>
+        <section class="principal__valores">  
+            <div class="valores__container">
+                <p>Valor da receita: <span class="valor renda">R$0,00</span></p>
+            </div>
+            <div class="valores__container">
+                <p>Valor das despesas: <span class="valor despesa">R$0,00</span></p>
+            </div>
+            <div class="valores__container">
+                <p>Saldo: <span class="valor saldo">R$0</span></p>
+            </div>
+        </section>
+        
+        <section class="principal__graficos">
+            <h2 class="graficos__titulo">Gráficos</h2>
+            <canvas id="grafico-barras" class="grafico__barras"></canvas>
+            <canvas id="grafico-pizza" class="grafico__pizza"></canvas>
+        </section>
+
+        <section class="principal__resumo">
+            <h2 class="resumo__titulo">Resumo Financeiro - <span id="mes"></span></h2>
+            <p>Nesse mês, você teve um total de <strong class="total-receitas">R$ 0,00</strong> em receita e <strong class="total-despesas">R$0,00</strong> em despesas, resultando em um saldo <span class="status-saldo">positivo</span> de <strong class="saldo-total">R$ 0,00</strong> <br> Seu principal gasto foi com <strong class="principal-gasto-um"></strong></p>
+        </section>
+    </main>
+    <footer class="rodape"><p>Feito por <a href="https://github.com/vitoriaberber">Vitória Berber</a></p></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="scripts/dashboard.js"></script>
+</body>
+</html>

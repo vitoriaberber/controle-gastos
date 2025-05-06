@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas e Gráficos</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+    <link rel="stylesheet" href="../estilos/reset.css">
+    <link rel="stylesheet" href="../estilos/tabelas-graficos.css">
+    <link rel="stylesheet" href="../estilos/media-query-tabelas-graficos.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <h1 class="cabecalho__titulo">Smart Money</h1>
+        <p class="saudacao"></p>
+        <span class="material-symbols-outlined cabecalho__menu">
+            menu
+        </span>
+        <nav class="cabecalho__navegacao" id="navbar">
+            <ul>
+                <li><a href="../index.html">Dashboard</a></li>
+                <li><a href="#tabelas-graficos">Tabelas e Gráficos</a></li>
+                <li><a href="perfil.html">perfil</a></li>
+                <li><a href="#">Mensagens</a></li>
+                <li><a href="#">Configurações</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="principal">
+        <section class="principal__formulario">
+            <h2 class="formulario__titulo titulo">Organize seus gastos</h2>
+            <form action="#">
+                <div class="container__botao">
+                    <button class="botao" id="botao-despesa" type="button">Despesa</button>
+                    <button class="botao" id="botao-renda" type="button">Renda</button>
+                </div>
+                <fieldset class="formulario__fieldset fieldset__despesas-vazio" id="form-despesa">
+                    <legend class="formulario__legenda">Adicione suas despesas</legend>
+                    <div class="formulario__container">
+                        <label for="nome">Nome da despesa:</label>
+                        <input type="text" name="nome" id="nome" placeholder="Ex: Netflix">
+                    </div>
+                    <div class="formulario__container">
+                        <label for="cat">Categoria da despesa:</label>
+                        <select name="cat" id="cat">
+                            <option value="lazer">Lazer</option>
+                            <option value="transporte">Transporte</option>
+                            <option value="moradia">Moradia</option>
+                            <option value="alimentacao">Alimentação</option>
+                        </select>
+                    </div>
+                    <div class="formulario__container">
+                        <label for="valor">Valor da despesa:</label>
+                        <input type="number" name="valor" id="valor">
+                    </div>
+
+                    <div class="formulario__container">
+                        <label for="pgto">Forma de pagamento:</label>
+                        <select name="pgto" id="pgto">
+                            <option value="Cartão de Credito">Cartão de Crédito</option>
+                            <option value="Cartão de Débito">Cartão de Débito</option>
+                            <option value="Dinheiro">Dinheiro</option>
+                            <option value="Pix">Pix</option>
+                            <option value="Boleto">Boleto</option>
+                        </select>
+                    </div>
+
+                    <div class="formulario__container">
+                        <label for="data">Data:</label>
+                        <input type="date" name="data" id="data">
+                    </div>
+                </fieldset>
+
+                <fieldset class="formulario__fieldset fieldset__renda-vazio" id="form-renda">
+                    <legend class="formulario__legenda">Adicione sua renda</legend>
+                    <div class="formulario__container">
+                        <label for="fonte">Fonte de Renda:</label>
+                        <input type="text" name="fonte" id="fonte" placeholder="Ex: Salário, Freelance" >
+                    </div>
+
+                    <div class="formulario__container categoria-renda-checkbox">
+                        <label>Categoria da Renda:</label>
+                        <input type="radio" name="catRenda" id="fixa" value="Renda Fixa">
+                        <label for="fixa" class="label-checkbox">
+                            Fixa
+                         </label>
+                        <input type="radio" name="catRenda" id="extra" value="Renda Extra">
+                        <label for="extra" class="label-checkbox">
+                            Extra
+                        </label>
+                    </div>
+
+                    <div class="formulario__container">
+                        <label for="valorRenda">Valor da renda:</label>
+                        <input type="number" name="valorRenda" id="valorRenda">
+                    </div>
+
+                    <div class="formulario__container">
+                        <label for="dataRenda">Data de recebimento:</label>
+                        <input type="date" name="dataRenda" id="dataRenda">
+                    </div>
+                </fieldset>
+
+                <fieldset class="container__botao formulario__fieldset fieldset__botoes-vazio" id="botoes-vazio">
+                    <input type="submit" value="Enviar" class="botao" id="enviar">
+                    <input type="reset" value="Limpar" class="botao" id="limpar">
+                </fieldset>
+        </section>
+
+        <section class="principal__tabelas">
+            <h2 class="titulo">Tabelas</h2>
+            <section class="tabelas__gastos tabelas__sessao">
+                <h3 class="tabelas__titulo">Tabela de Gastos</h3>
+                <div class="container__tabela">
+                    <table class="tabela">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Categoria</th>
+                                <th>Data</th>
+                                <th>Forma de pagamento</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tabela-gastos-body">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">Total</td>
+                                <td class="totalGastos">0</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+
+            <section class="tabelas__sessao">
+                <h3 class="tabelas__titulo">Tabela de rendas</h3>
+                <div class="container__tabela">
+                    <table class="tabela">
+                        <tr>
+                            <th>Fonte de renda</th>
+                            <th>Categoria</th>
+                            <th>Data</th>
+                            <th>Valor</th>
+                        </tr>
+                        <tbody class="tbody-rendas">
+                        </tbody>
+                        <tr>
+                            <td colspan="3">Total</td>
+                            <td class="totalRendas">0</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <section class="tabelas__sessao">
+                <h3 class="tabelas__titulo">Saldo total</h3>
+                <table class="tabela">
+                    <tr>
+                        <th>Saldo total</th>
+                        <td class="total">0</td>
+                    </tr>
+                </table>
+            </section>
+
+        </section>
+
+        <section class="container__botao">
+            <button class="botao" id="apagar" type="button">Apagar tudo</button>
+        </section>
+    </main>
+    <footer class="rodape"><p>Feito por <a href="https://github.com/vitoriaberber">Vitória Berber</a></p></footer>
+
+    <script type="module" src="../scripts/tabelas-graficos.js"></script>
+</body>
+</html>
