@@ -96,7 +96,7 @@ body {
 }
 
 .principal__titulo,
-.resumo__titulo {
+.resumo__titulo, .graficos__titulo {
   font-size: 1.2rem;
   margin: 5px 0 15px 0;
 }
@@ -123,6 +123,7 @@ strong {
   box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.089);
   border-radius: 16px;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .graficos__titulo {

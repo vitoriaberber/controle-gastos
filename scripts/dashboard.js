@@ -70,66 +70,76 @@ window.addEventListener('DOMContentLoaded', () => {
           }
         }
       });
-    } else{
-      
-    }
+    } 
 
-  const rendasSalvas = JSON.parse(rendaObj);
-  const despesasSalvas = JSON.parse(despesaObj);
-  const ctxBarras = document.getElementById('grafico-barras').getContext('2d');
-    new Chart(ctxBarras, {
-      type: 'bar',
-      data: {
-        labels: ['Renda', 'Despesa'],
-        datasets: [{
-          label: 'Valor',
-          data: [parseFloat(rendasSalvas.total), parseFloat(despesasSalvas.total)],
-          backgroundColor: ['#7F4FF3', '#b398f1'],
-        }]
-      },
-      options: {
-        plugins: {
-          legend: {
-            labels: {
-              generateLabels: function(chart) {
-                return [{
-                  text: 'Valor',
-                  fillStyle: 'transparent', // caixinha sem cor
-                  strokeStyle: 'transparent',
-                  lineWidth: 0
-                }];
+  if(!rendaSalva || !despesaSalva){
+    const mensagemNaoExiste = document.createElement('p');
+    mensagemNaoExiste.innerHTML = 'Insira dados em "Tabelas e Gráficos" para os gráficos aparecerem'
+    const grafico = document.querySelector('.principal__graficos');
+    const tituloGraficos = grafico.querySelector('h2');  
+      if (tituloGraficos) {
+        grafico.insertBefore(mensagemNaoExiste, tituloGraficos.nextSibling);
+      }
+
+  }
+
+  if (rendaSalva && despesaSalva) {
+      const ctxBarras = document.getElementById('grafico-barras').getContext('2d');
+      new Chart(ctxBarras, {
+        type: 'bar',
+        data: {
+          labels: ['Renda', 'Despesa'],
+          datasets: [{
+            label: 'Valor',
+            data: [parseFloat(JSON.parse(rendaSalva).total), parseFloat(JSON.parse(despesaSalva).total)],
+            backgroundColor: ['#7F4FF3', '#b398f1'],
+          }]
+        },
+        options: {
+          plugins: {
+            legend: {
+              labels: {
+                generateLabels: function(chart) {
+                  return [{
+                    text: 'Valor',
+                    fillStyle: 'transparent',
+                    strokeStyle: 'transparent',
+                    lineWidth: 0
+                  }];
+                }
               }
             }
+          },
+          scales: {
+            y: { beginAtZero: true }
           }
-        },
-        scales: {
-          y: { beginAtZero: true }
         }
-      }
-    });
+      });
 
-    const despesasPorCategoria = {};
-    despesasSalvas.despesas.forEach(despesa => {
-        if (despesasPorCategoria[despesa.catDespesa]) {
-            despesasPorCategoria[despesa.catDespesa] += parseFloat(despesa.valorDespesa);
-        } else {
-            despesasPorCategoria[despesa.catDespesa] = parseFloat(despesa.valorDespesa);
-        }
-    });
+      const despesasPorCategoria = {};
+      const despesasSalvas = JSON.parse(despesaSalva);
+      despesasSalvas.despesas.forEach(despesa => {
+          if (despesasPorCategoria[despesa.catDespesa]) {
+              despesasPorCategoria[despesa.catDespesa] += parseFloat(despesa.valorDespesa);
+          } else {
+              despesasPorCategoria[despesa.catDespesa] = parseFloat(despesa.valorDespesa);
+          }
+      });
 
-    const categoriasPizza = Object.keys(despesasPorCategoria);
-    const valoresPizza = Object.values(despesasPorCategoria);
-    const coresPizza = ['#7F4FF3', '#b398f1', '#cdb7ff', '#6e38ec']; 
+      const categoriasPizza = Object.keys(despesasPorCategoria);
+      const valoresPizza = Object.values(despesasPorCategoria);
+      const coresPizza = ['#7F4FF3', '#b398f1', '#cdb7ff', '#6e38ec']; 
 
-    const ctxPizza = document.getElementById('grafico-pizza').getContext('2d');
-    new Chart(ctxPizza, {
-        type: 'pie',
-        data: {
-            labels: categoriasPizza,
-            datasets: [{
-                data: valoresPizza,
-                backgroundColor: coresPizza.slice(0, categoriasPizza.length)
-            }]
-        }
-    });
+      const ctxPizza = document.getElementById('grafico-pizza').getContext('2d');
+      new Chart(ctxPizza, {
+          type: 'pie',
+          data: {
+              labels: categoriasPizza,
+              datasets: [{
+                  data: valoresPizza,
+                  backgroundColor: coresPizza.slice(0, categoriasPizza.length)
+              }]
+          }
+      });
+    }
 });

@@ -171,6 +171,7 @@ btnEnviar.addEventListener("click", (e) => {
       dataDespesa
     };
     todosValoresDespesa.push(novaDespesa);
+    alert('Dados Enviados com Sucesso!')
   }
 
   if (!formRenda.classList.contains("fieldset__renda-vazio")) {
