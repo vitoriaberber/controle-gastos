@@ -170,6 +170,7 @@ canvas {
   text-align: center;
   border-radius: 0 0 5px 5px;
   transition: margin 1s ease;
+  height: 30px;
 }
 
 .rodape > p > a {

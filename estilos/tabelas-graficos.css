@@ -18,7 +18,7 @@
 
 body {
     width: 99.5vw;
-    min-height: 100vh;
+    min-height: 105vh;
     font-family: var(--fonte);
     background-color: var(--cor-fundo-body);
     text-align: center;
@@ -177,6 +177,7 @@ form input::placeholder {
     text-align: center;
     border-radius: 0 0 5px 5px;
     transition: margin 1s ease;
+    height: 30px;
 }
 
 .rodape > p > a {
